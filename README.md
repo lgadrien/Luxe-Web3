@@ -1,1 +1,1 @@
-# Luxe & Web3
+# Luxe & Web 3
