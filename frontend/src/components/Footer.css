@@ -1,0 +1,38 @@
+.footer {
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-links h4 {
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+.footer-links a {
+  display: block;
+  color: var(--color-cream);
+  text-decoration: none;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--color-gold);
+}
+.footer-brand h3 {
+  font-family: var(--font-brand);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.footer-brand p {
+  opacity: 0.8;
+}

@@ -116,7 +116,7 @@ export const allProducts: Record<string, Product[]> = {
 
 export const getProductById = (id: number) => {
   for (const category of Object.values(allProducts)) {
-    const product = category.find(p => p.id === id)
+    const product = category.find((p) => p.id === id)
     if (product) return product
   }
   return null
