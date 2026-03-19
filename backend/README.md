@@ -143,10 +143,30 @@ Suite result: ok. 22 passed; 0 failed;
 
 ---
 
+## Déploiement (Localhost)
+
+Si vous souhaitez simuler la blockchain localement sans payer de gas ni avoir besoin d'ETH de test :
+
+1. Dans un premier terminal, lancez le nœud local en simulant l'ID de Base Sepolia :
+```bash
+anvil --chain-id 84532
+```
+
+2. Dans un second terminal, lancez le script avec une clé de test fournie par Anvil :
+```bash
+export ALCHEMY_RPC_URL=http://127.0.0.1:8545
+export PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+forge script script/Deploy.s.sol --rpc-url $ALCHEMY_RPC_URL --broadcast -vvvv
+```
+
+---
+
 ## Déploiement (Base Sepolia)
 
+Déployer sur le testnet public Base Sepolia requiert d'avoir de faux ETH de test sur le portefeuille spécifié dans `.env`.
+
 ```bash
-source .env
+set -a; source .env; set +a
 
 forge script script/Deploy.s.sol \
   --rpc-url $ALCHEMY_RPC_URL \

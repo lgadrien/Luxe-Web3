@@ -61,10 +61,10 @@ contract DeployRimowa is Script {
     // ═══════════════════════════════════════════════════════════════
 
     function run() external {
-        // Vérification du réseau
+        // Vérification du réseau (Base Sepolia ou Ethereum Sepolia)
         require(
-            block.chainid == BASE_SEPOLIA_CHAIN_ID,
-            "Deploy: Ce script est configure pour Base Sepolia uniquement"
+            block.chainid == BASE_SEPOLIA_CHAIN_ID || block.chainid == 11155111 || block.chainid == 31337,
+            "Deploy: Configure pour testnets uniquement"
         );
 
         // Chargement des variables d'environnement
