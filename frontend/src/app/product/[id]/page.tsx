@@ -48,7 +48,8 @@ export default function ProductDetail() {
           body: JSON.stringify({
             email,
             serialNumber: randomSerial,
-            cid: fakeCid
+            cid: fakeCid,
+            productId: product?.id
           })
         });
 
@@ -144,14 +145,28 @@ export default function ProductDetail() {
             )}
 
             {checkoutStep === 3 && (
-              <div className="step success-step">
+              <div className="step success-step" style={{ padding: '20px' }}>
                 <div className="icon-success">✓</div>
-                <h2>Passeport Numérique Créé !</h2>
-                <p>
-                  Félicitations. Votre paiement est validé et votre Jumeau Numérique 3D est stocké de manière perpétuelle sur Arweave. 
-                  À la réception de la valise, un scan NFC confirmera l'authenticité absolue.
-                </p>
-                <button className="btn-secondary" onClick={closeModal}>Retour à la boutique</button>
+                <h2>Passeport Numérique Généré</h2>
+                <p style={{ marginBottom: '20px' }}>Votre Jumeau Numérique vient d'être lié à l'adresse Web3 silencieuse associée à votre email.</p>
+                
+                <div style={{ background: '#fcfcfc', border: '1px solid #eaeaea', padding: '20px', borderRadius: '4px', textAlign: 'left', marginBottom: '30px' }}>
+                  <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <div style={{ width: '80px', height: '80px', background: '#fff', border: '1px solid #ddd', padding: '10px' }}>
+                       <img src={product?.images?.[0]} style={{ width: '100%', height: '100%', objectFit: 'contain' }} alt="" />
+                    </div>
+                    <div>
+                      <h4 style={{ margin: '0 0 5px 0', fontSize: '1.2rem', color: '#1a1a1a' }}>Certificat d'Authenticité</h4>
+                      <p style={{ margin: 0, fontSize: '0.85rem', color: '#666' }}>Objet : {product?.name}</p>
+                      <p style={{ margin: 0, fontSize: '0.85rem', color: '#666' }}>Statut : <span style={{ color: 'green' }}>Confirmé sur la Blockchain</span></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
+                  <button className="btn-secondary" onClick={closeModal}>Retour Boutique</button>
+                  <button className="btn-primary" onClick={() => router.push('/vault')}>Ouvrir mon Coffre</button>
+                </div>
               </div>
             )}
           </div>

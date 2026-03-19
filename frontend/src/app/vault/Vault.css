@@ -1,0 +1,158 @@
+/* Styling for the Vault page */
+.vault-page {
+  padding: 120px 5% 60px;
+  min-height: 80vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+.vault-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.vault-header h1 {
+  font-size: 3rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.vault-header p {
+  font-size: 1.1rem;
+  color: #777;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 400px;
+  gap: 20px;
+}
+
+.vault-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.passport-card {
+  background: #ffffff;
+  border: 1px solid #eee;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+}
+
+.passport-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.passport-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: var(--color-background);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.passport-img-wrapper img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 10s ease;
+}
+
+/* Effet Hologramme 3D */
+.passport-hologram {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 50%, rgba(212, 175, 55, 0.1) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.passport-hologram::after {
+  content: "JUMEAU 3D";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  opacity: 0.6;
+}
+
+.passport-card:hover .passport-img-wrapper img {
+  transform: scale(1.1);
+}
+
+.passport-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--color-text);
+  letter-spacing: 1px;
+}
+
+.passport-detail {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 4px;
+}
+
+.passport-detail strong {
+  color: var(--color-text);
+}
+
+.contract-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.contract-link:hover {
+  opacity: 0.7;
+}
+
+.empty-vault {
+  text-align: center;
+  padding: 60px 0;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

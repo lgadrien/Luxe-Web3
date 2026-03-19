@@ -1,0 +1,135 @@
+/* Compte.css */
+.compte-page {
+  padding: 120px 5% 60px;
+  min-height: 80vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+.compte-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.compte-header h1 {
+  font-size: 3rem;
+  letter-spacing: 3px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.compte-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nfc-scanner {
+  background: #ffffff;
+  border: 1px solid #eee;
+  padding: 40px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+
+.nfc-scanner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--color-text);
+  letter-spacing: 1px;
+}
+
+.nfc-scanner p {
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 450px;
+  line-height: 1.6;
+}
+
+.nfc-radar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  background-color: #fbfbfb;
+  transition: border-color 0.3s ease;
+}
+
+.nfc-radar.scanning {
+  border-color: var(--color-primary);
+}
+
+.nfc-radar.scanning::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(212, 175, 55, 0.4) 360deg);
+  transform-origin: 0 0;
+  animation: radar-spin 1.5s linear infinite;
+}
+
+.nfc-radar-icon {
+  font-size: 3.5rem;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+@keyframes radar-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.scan-result {
+  margin-top: 40px;
+  background: #fafafa;
+  padding: 25px;
+  border-left: 4px solid #10b981;
+  text-align: left;
+  width: 100%;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scan-result h3 {
+  color: #10b981;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scan-result p {
+  margin: 8px 0;
+  color: #444;
+  font-size: 0.95rem;
+  max-width: 100%;
+}
+
+.scan-result strong {
+  display: inline-block;
+  min-width: 160px;
+  color: var(--color-text);
+}
